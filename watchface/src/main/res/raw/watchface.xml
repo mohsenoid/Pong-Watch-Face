@@ -4,34 +4,83 @@
     <Metadata
         key="CLOCK_TYPE"
         value="DIGITAL" />
+    <BitmapFonts>
+        <BitmapFont name="arcade_digits">
+            <Character name="0" resource="digit_0" width="90" height="120" />
+            <Character name="1" resource="digit_1" width="90" height="120" />
+            <Character name="2" resource="digit_2" width="90" height="120" />
+            <Character name="3" resource="digit_3" width="90" height="120" />
+            <Character name="4" resource="digit_4" width="90" height="120" />
+            <Character name="5" resource="digit_5" width="90" height="120" />
+            <Character name="6" resource="digit_6" width="90" height="120" />
+            <Character name="7" resource="digit_7" width="90" height="120" />
+            <Character name="8" resource="digit_8" width="90" height="120" />
+            <Character name="9" resource="digit_9" width="90" height="120" />
+            <Character name=":" resource="digit_colon" width="30" height="120" />
+        </BitmapFont>
+    </BitmapFonts>
     <Scene>
+        <PartImage
+            height="450"
+            width="450"
+            x="0"
+            y="0">
+            <Image resource="bg_scanlines" />
+        </PartImage>
         <DigitalClock
             height="450"
             width="450"
             x="0"
             y="0">
             <TimeText
-                format="hh:mm"
-                height="100"
-                width="450"
-                x="0"
-                y="175">
+                format="hh_1"
+                height="120"
+                width="90"
+                x="112"
+                y="140">
                 <Variant
                     mode="AMBIENT"
                     target="alpha"
                     value="0" />
-                <Font
-                    color="#ffffffff"
-                    family="SYNC_TO_DEVICE"
-                    size="128" />
+                <BitmapFont
+                    family="arcade_digits"
+                    size="126" />
+            </TimeText>
+            <TimeText
+                format="mm_10"
+                height="120"
+                width="90"
+                x="248"
+                y="140">
+                <Variant
+                    mode="AMBIENT"
+                    target="alpha"
+                    value="0" />
+                <BitmapFont
+                    family="arcade_digits"
+                    size="126" />
+            </TimeText>
+            <TimeText
+                format="mm_1"
+                height="120"
+                width="90"
+                x="346"
+                y="140">
+                <Variant
+                    mode="AMBIENT"
+                    target="alpha"
+                    value="0" />
+                <BitmapFont
+                    family="arcade_digits"
+                    size="126" />
             </TimeText>
             <TimeText
                 alpha="0"
                 format="hh:mm"
-                height="100"
-                width="450"
-                x="0"
-                y="175">
+                height="120"
+                width="390"
+                x="30"
+                y="140">
                 <Variant
                     mode="AMBIENT"
                     target="alpha"
@@ -39,36 +88,62 @@
                 <Font
                     color="#ffffffff"
                     family="SYNC_TO_DEVICE"
-                    size="128"
+                    size="110"
                     weight="THIN" />
             </TimeText>
         </DigitalClock>
         <Group
-            name="hello_world"
+            name="arcade_track"
             height="450"
             width="450"
             x="0"
             y="0">
-            <PartText
-                height="50"
+            <Variant
+                mode="AMBIENT"
+                target="alpha"
+                value="0" />
+            <PartImage
+                height="64"
                 width="450"
                 x="0"
-                y="285">
-                <Variant
-                    mode="AMBIENT"
-                    target="alpha"
-                    value="0" />
-                <Text>
-                    <Font
-                        color="#ffffffff"
-                        family="SYNC_TO_DEVICE"
-                        size="36">
-                        <Template>%s
-                            <Parameter expression="greeting" />
-                        </Template>
-                    </Font>
-                </Text>
-            </PartText>
+                y="350">
+                <Image resource="river_strip" />
+            </PartImage>
+            <PartImage
+                height="44"
+                width="84"
+                x="40"
+                y="360">
+                <Transform
+                    target="x"
+                    value="40 + (clamp([SECOND],0,30) - clamp([SECOND]-30,0,30)) / 30 * 286" />
+                <Image resource="sprite_jet" />
+            </PartImage>
         </Group>
+        <PartImage
+            height="120"
+            width="90"
+            x="14"
+            y="140">
+            <Transform
+                target="alpha"
+                value="(([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*255" />
+            <Variant
+                mode="AMBIENT"
+                target="alpha"
+                value="0" />
+            <Image resource="hour_leading_one" />
+        </PartImage>
+        <PartImage
+            height="120"
+            width="30"
+            x="210"
+            y="140">
+            <Variant
+                mode="AMBIENT"
+                target="alpha"
+                value="0" />
+            <Image resource="digit_colon" />
+        </PartImage>
     </Scene>
 </WatchFace>
