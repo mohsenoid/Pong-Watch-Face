@@ -103,21 +103,35 @@
                 target="alpha"
                 value="0" />
             <PartImage
-                height="64"
-                width="450"
-                x="0"
-                y="350">
-                <Image resource="river_strip" />
+                height="48"
+                width="6"
+                x="222"
+                y="346">
+                <Image resource="arena_divider" />
             </PartImage>
             <PartImage
-                height="44"
-                width="84"
-                x="40"
-                y="360">
+                height="48"
+                width="40"
+                x="90"
+                y="346">
+                <Image resource="arena_ship_left" />
+            </PartImage>
+            <PartImage
+                height="48"
+                width="40"
+                x="320"
+                y="346">
+                <Image resource="arena_ship_right" />
+            </PartImage>
+            <PartImage
+                height="16"
+                width="16"
+                x="140"
+                y="362">
                 <Transform
                     target="x"
-                    value="40 + (clamp([SECOND],0,30) - clamp([SECOND]-30,0,30)) / 30 * 286" />
-                <Image resource="sprite_jet" />
+                    value="140 + (clamp([SECOND],0,30) - clamp([SECOND]-30,0,30)) / 30 * 160" />
+                <Image resource="arena_missile" />
             </PartImage>
         </Group>
         <PartImage

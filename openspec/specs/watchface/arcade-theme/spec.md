@@ -20,25 +20,25 @@ The watch face SHALL render a black background with a faint horizontal scanline 
 
 #### Scenario: Background is visible behind the time display
 - **WHEN** the watch face is in active mode
-- **THEN** the scanline background is visible in areas not covered by the time text or sprite/river group
+- **THEN** the scanline background is visible in areas not covered by the time text or the arena group
 
-### Requirement: Drifting original sprite
-The watch face SHALL render one small, originally-designed pixel-art sprite (not traced or derived from any specific published game's character or vehicle art) drifting horizontally over a river-strip graphic near the bottom of the screen, with horizontal position derived from the current time's seconds value so the sprite appears to move rather than stay static.
+### Requirement: Refraction-style bouncing arena
+The watch face SHALL render, in the decorative band below the time display, a vertical divider at horizontal center, two small originally-designed geometric ship sprites near the left and right edges (not traced from any specific published game's sprite art), and one small bouncing element whose horizontal position is derived from the current time's seconds value so it moves back and forth across the full band width, crossing the central divider each pass.
 
-#### Scenario: Sprite position changes over time
+#### Scenario: Bouncing element position changes over time
 - **WHEN** the current seconds value changes while the watch face is in active mode
-- **THEN** the sprite's horizontal position on screen changes accordingly (drifting back and forth across the river strip)
+- **THEN** the bouncing element's horizontal position on screen changes accordingly, moving back and forth between the left and right edges of the arena band and crossing the central divider on each pass
 
-#### Scenario: Sprite and river are original, unbranded art
-- **WHEN** the sprite and river assets are produced for this watch face
-- **THEN** they SHALL be original pixel art generated for this project, and SHALL NOT reproduce the specific character design, level art, logo, or name of any existing copyrighted or trademarked video game
+#### Scenario: Arena assets are original, unbranded art
+- **WHEN** the divider, ship, and bouncing-element assets are produced for this watch face
+- **THEN** they SHALL be original pixel art generated for this project, and SHALL NOT reproduce the specific sprite art, level art, logo, or name of any existing copyrighted or trademarked video game (including the homebrew game that inspired the mechanic)
 
 ### Requirement: Ambient mode simplification
-When the watch face transitions to ambient (always-on) mode, the river-strip and sprite group SHALL be hidden (rendered at zero opacity) and the time text SHALL switch to a simplified, thin/outline rendering, consistent with Wear OS ambient-mode power and burn-in guidance.
+When the watch face transitions to ambient (always-on) mode, the arena group SHALL be hidden (rendered at zero opacity) and the time text SHALL switch to a simplified, thin/outline rendering, consistent with Wear OS ambient-mode power and burn-in guidance.
 
 #### Scenario: Entering ambient mode hides the sprite and river
 - **WHEN** the watch face transitions from active to ambient mode
-- **THEN** the river-strip and sprite group's opacity becomes 0 (not rendered)
+- **THEN** the arena group's opacity becomes 0 (not rendered)
 
 #### Scenario: Entering ambient mode simplifies the time text
 - **WHEN** the watch face transitions from active to ambient mode

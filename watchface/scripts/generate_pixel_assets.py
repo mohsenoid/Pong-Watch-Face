@@ -1,15 +1,18 @@
 """Generates original pixel-art assets for the arcade-theme watch face.
 
-Everything here is hand-authored/procedurally generated (a classic
-seven-segment LED-scoreboard digit renderer, plus original shapes for the
-background, river strip, and sprite) - nothing is traced or derived from
-any copyrighted game's art.
+Everything here is hand-authored/procedurally generated (a pixel-grid
+digit font transcribed from a user-provided reference, plus original
+shapes for the background and the Refraction-inspired bouncing arena) -
+nothing is traced or derived from any copyrighted game's art. The arena
+mechanic (a bouncing element crossing a central divider between two
+ships) is inspired by "Refraction", an independent 2018 Atari 2600
+homebrew game by Norbert Landsteiner - not a commercial/licensed title -
+but the sprites here are original, not traced from that game's assets.
 
 Run with: python3 watchface/scripts/generate_pixel_assets.py
 Outputs into watchface/src/main/res/drawable/.
 """
 
-import math
 import os
 
 from PIL import Image, ImageDraw
@@ -17,14 +20,13 @@ from PIL import Image, ImageDraw
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DRAWABLE_DIR = os.path.join(SCRIPT_DIR, "..", "src", "main", "res", "drawable")
 
-ACCENT_COLOR = (255, 106, 0, 255)  # Atari-style orange/red
-SPRITE_COLOR = (235, 235, 235, 255)  # off-white jet body
-SPRITE_SHADOW = (25, 45, 60, 140)  # soft shadow cast on the water
-RIVER_COLOR = (16, 82, 122, 255)
-RIVER_WAVE_COLOR = (54, 140, 180, 255)
-BANK_COLOR = (58, 130, 62, 255)
-BANK_SHADE_COLOR = (44, 104, 48, 255)
+ACCENT_COLOR = (255, 106, 0, 255)  # Atari-style orange/red (time display only)
+DIVIDER_COLOR = (240, 240, 240, 255)  # bright white arena barrier
+SHIP_LEFT_COLOR = (0, 220, 220, 255)  # cyan, right-facing ship
+SHIP_RIGHT_COLOR = (230, 0, 200, 255)  # magenta, left-facing ship
+MISSILE_COLOR = (255, 230, 0, 255)  # bright yellow bouncing element
 CANVAS_SIZE = 450
+ARENA_BAND_HEIGHT = 48  # matches the ship sprite height so they align
 
 # Atari 2600-style 6x8 digit font, transcribed from a byte-table reference
 # the user provided and cross-checked bit-for-bit (each byte's bits 6..1
@@ -106,69 +108,80 @@ def generate_scanline_background():
     img.save(os.path.join(DRAWABLE_DIR, "bg_scanlines.png"))
 
 
-def generate_river_strip():
-    width, height = CANVAS_SIZE, 64
-    bank_h = 9
-    img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-    pixels = img.load()
-    for y in range(height):
-        for x in range(width):
-            if y < bank_h or y >= height - bank_h:
-                # Grassy riverbank, with a slightly darker shoreline row
-                # right at the water's edge for definition.
-                is_edge = y == bank_h - 1 or y == height - bank_h
-                pixels[x, y] = BANK_SHADE_COLOR if is_edge else BANK_COLOR
-            else:
-                # Undulating wave bands (a sine offset per column) instead
-                # of a flat diagonal weave, so it actually reads as water.
-                y_rel = y - bank_h
-                wave = 2.5 * math.sin((x / 22.0) + (y_rel / 5.0))
-                band = int(y_rel + wave) % 10
-                pixels[x, y] = RIVER_WAVE_COLOR if band < 3 else RIVER_COLOR
-    img.save(os.path.join(DRAWABLE_DIR, "river_strip.png"))
+def generate_divider():
+    width, height = 6, ARENA_BAND_HEIGHT
+    img = Image.new("RGBA", (width, height), DIVIDER_COLOR)
+    img.save(os.path.join(DRAWABLE_DIR, "arena_divider.png"))
 
 
-# A top-down jet silhouette (nose, fuselage, swept wings, twin tail fins) on
-# a 21-wide x 11-tall grid, defined as filled column ranges per row so the
-# shape is unambiguous - no hand-counted ASCII art to mistype.
-JET_GRID_WIDTH = 21
-JET_GRID_HEIGHT = 11
-JET_ROWS = {
-    0: [(10, 10)],
-    1: [(10, 10)],
-    2: [(9, 11)],
-    3: [(9, 11)],
-    4: [(8, 12)],
-    5: [(2, 3), (8, 12), (17, 18)],
-    6: [(0, 4), (8, 12), (16, 20)],
-    7: [(2, 3), (8, 12), (17, 18)],
-    8: [(8, 12)],
-    9: [(7, 8), (12, 13)],
-    10: [(6, 7), (13, 14)],
+# A simple wedge/dart ship silhouette - a right-pointing triangle: flat
+# vertical base at col0, apex approaching col9 at the vertical center - on
+# a 10-wide x 12-tall grid, defined as filled column ranges per row so the
+# shape is unambiguous (no hand-counted ASCII art to mistype, the mistake
+# that broke the first digit-font attempt). Not traced from any specific
+# game's sprite art.
+SHIP_GRID_WIDTH = 10
+SHIP_GRID_HEIGHT = 12
+SHIP_ROWS_FACING_RIGHT = {
+    0: [(0, 0)],
+    1: [(0, 1)],
+    2: [(0, 2)],
+    3: [(0, 4)],
+    4: [(0, 6)],
+    5: [(0, 8)],
+    6: [(0, 8)],
+    7: [(0, 6)],
+    8: [(0, 4)],
+    9: [(0, 2)],
+    10: [(0, 1)],
+    11: [(0, 0)],
 }
 
 
-def generate_sprite_jet():
-    scale = 4
-    width = JET_GRID_WIDTH * scale
-    height = JET_GRID_HEIGHT * scale
+def _mirror_rows(rows, width):
+    return {
+        row: [(width - 1 - end, width - 1 - start) for start, end in ranges]
+        for row, ranges in rows.items()
+    }
+
+
+def _render_grid(rows, grid_width, grid_height, color, scale):
+    width = grid_width * scale
+    height = grid_height * scale
     img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     pixels = img.load()
-    for row_index in range(JET_GRID_HEIGHT):
-        for start, end in JET_ROWS.get(row_index, []):
+    for row_index in range(grid_height):
+        for start, end in rows.get(row_index, []):
             for col_index in range(start, end + 1):
                 for dy in range(scale):
                     for dx in range(scale):
-                        pixels[col_index * scale + dx, row_index * scale + dy] = SPRITE_COLOR
-    img.save(os.path.join(DRAWABLE_DIR, "sprite_jet.png"))
+                        pixels[col_index * scale + dx, row_index * scale + dy] = color
+    return img
+
+
+def generate_ships():
+    scale = 4
+    right_facing = _render_grid(SHIP_ROWS_FACING_RIGHT, SHIP_GRID_WIDTH, SHIP_GRID_HEIGHT, SHIP_LEFT_COLOR, scale)
+    right_facing.save(os.path.join(DRAWABLE_DIR, "arena_ship_left.png"))
+
+    left_facing_rows = _mirror_rows(SHIP_ROWS_FACING_RIGHT, SHIP_GRID_WIDTH)
+    left_facing = _render_grid(left_facing_rows, SHIP_GRID_WIDTH, SHIP_GRID_HEIGHT, SHIP_RIGHT_COLOR, scale)
+    left_facing.save(os.path.join(DRAWABLE_DIR, "arena_ship_right.png"))
+
+
+def generate_missile():
+    size = 16
+    img = Image.new("RGBA", (size, size), MISSILE_COLOR)
+    img.save(os.path.join(DRAWABLE_DIR, "arena_missile.png"))
 
 
 def main():
     os.makedirs(DRAWABLE_DIR, exist_ok=True)
     generate_digits()
     generate_scanline_background()
-    generate_river_strip()
-    generate_sprite_jet()
+    generate_divider()
+    generate_ships()
+    generate_missile()
     print("Generated pixel-art assets in", os.path.abspath(DRAWABLE_DIR))
 
 
