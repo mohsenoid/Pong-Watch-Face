@@ -17,12 +17,19 @@ from PIL import Image, ImageDraw
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DRAWABLE_DIR = os.path.join(SCRIPT_DIR, "..", "src", "main", "res", "drawable")
 
-ACCENT_COLOR = (255, 106, 0, 255)  # Atari-style orange/red (time display only)
+ACCENT_COLOR = (255, 106, 0, 255)  # Atari-style orange/red, split bg bottom half
+SPLIT_TOP_COLOR = (90, 60, 200, 255)  # purple, split bg top half
+DIGIT_COLOR = (255, 255, 255, 255)  # white - single fixed digit color, chosen
+                                     # for contrast against both split halves
+                                     # (masking-based per-half color swap was
+                                     # attempted and abandoned - see design.md)
 DIVIDER_COLOR = (240, 240, 240, 255)  # bright white arena barrier
 PADDLE_COLOR = (245, 245, 245, 255)  # classic white Pong paddles
 BALL_COLOR = (255, 230, 0, 255)  # bright yellow bouncing ball
 CANVAS_SIZE = 450
 ARENA_BAND_HEIGHT = 48  # matches the paddle height so they align
+SPLIT_Y = 205  # horizontal divide for the two-tone background; chosen so the
+               # digit row (y=148..252) straddles it
 
 # Atari 2600-style 6x8 digit font, transcribed from a byte-table reference
 # the user provided and cross-checked bit-for-bit (each byte's bits 6..1
@@ -66,7 +73,7 @@ def render_digit(rows, color, scale=DIGIT_SCALE):
 
 def generate_digits():
     for digit, rows in DIGIT_ROWS.items():
-        img = render_digit(rows, ACCENT_COLOR)
+        img = render_digit(rows, DIGIT_COLOR)
         img.save(os.path.join(DRAWABLE_DIR, f"digit_{digit}.png"))
 
     # The hour-tens digit is only ever blank or "1" in 12-hour time, so it's
@@ -76,7 +83,7 @@ def generate_digits():
     # BitmapFont Character mapping and a plain PartImage fails to render in
     # the PartImage - the BitmapFont-mapped copy renders fine as a text
     # glyph but the standalone image usage silently shows nothing.
-    one_img = render_digit(DIGIT_ROWS["1"], ACCENT_COLOR)
+    one_img = render_digit(DIGIT_ROWS["1"], DIGIT_COLOR)
     one_img.save(os.path.join(DRAWABLE_DIR, "hour_leading_one.png"))
 
     colon_width = 2 * DIGIT_SCALE  # was hardcoded 30, exactly 2x the old scale
@@ -87,29 +94,38 @@ def generate_digits():
     for cy in (DIGIT_HEIGHT * 0.32, DIGIT_HEIGHT * 0.68):
         draw.rectangle(
             (cx - dot / 2, cy - dot / 2, cx + dot / 2, cy + dot / 2),
-            fill=ACCENT_COLOR,
+            fill=DIGIT_COLOR,
         )
     colon_img.save(os.path.join(DRAWABLE_DIR, "digit_colon.png"))
 
 
 def generate_scanline_background():
+    # Semi-transparent overlay (not an opaque fill) so it can sit on top of
+    # the two-tone split background without hiding its colors.
+    img = Image.new("RGBA", (CANVAS_SIZE, CANVAS_SIZE), (0, 0, 0, 0))
+    pixels = img.load()
+    for y in range(CANVAS_SIZE):
+        alpha = 55 if y % 4 == 0 else 20
+        for x in range(CANVAS_SIZE):
+            pixels[x, y] = (0, 0, 0, alpha)
+    img.save(os.path.join(DRAWABLE_DIR, "bg_scanlines.png"))
+
+
+def generate_split_background():
     img = Image.new("RGBA", (CANVAS_SIZE, CANVAS_SIZE), (0, 0, 0, 255))
     pixels = img.load()
     for y in range(CANVAS_SIZE):
-        # Faint scanline every 4px; keeps the background readably dark.
-        if y % 4 == 0:
-            shade = 24
-        else:
-            shade = 8
+        color = SPLIT_TOP_COLOR if y < SPLIT_Y else ACCENT_COLOR
         for x in range(CANVAS_SIZE):
-            pixels[x, y] = (shade, shade, shade, 255)
-    img.save(os.path.join(DRAWABLE_DIR, "bg_scanlines.png"))
+            pixels[x, y] = color
+    img.save(os.path.join(DRAWABLE_DIR, "bg_split.png"))
 
 
 def generate_divider():
     # Small square dots down the column - Pong's classic center-court line -
-    # instead of a solid bar.
-    width, height = 6, ARENA_BAND_HEIGHT
+    # instead of a solid bar. Double-height (not double-thickness) per user
+    # request, for a taller, more prominent line.
+    width, height = 6, ARENA_BAND_HEIGHT * 2
     dash, gap = 4, 4
     period = dash + gap
     img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
@@ -143,6 +159,7 @@ def main():
     os.makedirs(DRAWABLE_DIR, exist_ok=True)
     generate_digits()
     generate_scanline_background()
+    generate_split_background()
     generate_divider()
     generate_paddles()
     generate_ball()

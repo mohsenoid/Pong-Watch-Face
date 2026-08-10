@@ -25,6 +25,13 @@
             width="450"
             x="0"
             y="0">
+            <Image resource="bg_split" />
+        </PartImage>
+        <PartImage
+            height="450"
+            width="450"
+            x="0"
+            y="0">
             <Image resource="bg_scanlines" />
         </PartImage>
         <DigitalClock
@@ -38,10 +45,6 @@
                 width="78"
                 x="126"
                 y="148">
-                <Variant
-                    mode="AMBIENT"
-                    target="alpha"
-                    value="0" />
                 <BitmapFont
                     family="arcade_digits"
                     size="109" />
@@ -52,10 +55,6 @@
                 width="78"
                 x="246"
                 y="148">
-                <Variant
-                    mode="AMBIENT"
-                    target="alpha"
-                    value="0" />
                 <BitmapFont
                     family="arcade_digits"
                     size="109" />
@@ -66,30 +65,9 @@
                 width="78"
                 x="332"
                 y="148">
-                <Variant
-                    mode="AMBIENT"
-                    target="alpha"
-                    value="0" />
                 <BitmapFont
                     family="arcade_digits"
                     size="109" />
-            </TimeText>
-            <TimeText
-                alpha="0"
-                format="hh:mm"
-                height="104"
-                width="370"
-                x="40"
-                y="148">
-                <Variant
-                    mode="AMBIENT"
-                    target="alpha"
-                    value="255" />
-                <Font
-                    color="#ffffffff"
-                    family="SYNC_TO_DEVICE"
-                    size="95"
-                    weight="THIN" />
             </TimeText>
         </DigitalClock>
         <Group
@@ -98,15 +76,11 @@
             width="450"
             x="0"
             y="0">
-            <Variant
-                mode="AMBIENT"
-                target="alpha"
-                value="0" />
             <PartImage
-                height="48"
+                height="96"
                 width="6"
                 x="222"
-                y="346">
+                y="322">
                 <Image resource="arena_divider" />
             </PartImage>
             <PartImage
@@ -116,7 +90,7 @@
                 y="350">
                 <Transform
                     target="y"
-                    value="342 + (clamp([SECOND] % 5,0,2.5) - clamp(([SECOND] % 5)-2.5,0,2.5)) / 2.5 * 20">
+                    value="342 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 20">
                     <Animation
                         duration="1"
                         interpolation="LINEAR" />
@@ -130,7 +104,7 @@
                 y="350">
                 <Transform
                     target="y"
-                    value="342 + (clamp([SECOND] % 5,0,2.5) - clamp(([SECOND] % 5)-2.5,0,2.5)) / 2.5 * 20">
+                    value="342 + (clamp([SECOND] % 6,0,3) - clamp(([SECOND] % 6)-3,0,3)) / 3 * 20">
                     <Animation
                         duration="1"
                         interpolation="LINEAR" />
@@ -144,7 +118,7 @@
                 y="362">
                 <Transform
                     target="x"
-                    value="140 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 160">
+                    value="105 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 224">
                     <Animation
                         duration="1"
                         interpolation="LINEAR" />
@@ -167,10 +141,6 @@
             <Transform
                 target="alpha"
                 value="(([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*255" />
-            <Variant
-                mode="AMBIENT"
-                target="alpha"
-                value="0" />
             <Image resource="hour_leading_one" />
         </PartImage>
         <PartImage
@@ -178,11 +148,28 @@
             width="26"
             x="212"
             y="148">
-            <Variant
-                mode="AMBIENT"
-                target="alpha"
-                value="0" />
             <Image resource="digit_colon" />
         </PartImage>
+        <PartText
+            height="40"
+            width="360"
+            x="45"
+            y="70">
+            <Localization
+                calendar="GREGORIAN"
+                timeZone="SYNC_TO_DEVICE" />
+            <Text align="CENTER">
+                <Font
+                    color="#ffffffff"
+                    family="SYNC_TO_DEVICE"
+                    size="28">
+                    <Template><![CDATA[%s, %s %s]]>
+                        <Parameter expression="[DAY_OF_WEEK_S]" />
+                        <Parameter expression="[MONTH_S]" />
+                        <Parameter expression="[DAY_Z]" />
+                    </Template>
+                </Font>
+            </Text>
+        </PartText>
     </Scene>
 </WatchFace>
