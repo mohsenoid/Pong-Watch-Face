@@ -6,17 +6,17 @@
         value="DIGITAL" />
     <BitmapFonts>
         <BitmapFont name="arcade_digits">
-            <Character name="0" resource="digit_0" width="90" height="120" />
-            <Character name="1" resource="digit_1" width="90" height="120" />
-            <Character name="2" resource="digit_2" width="90" height="120" />
-            <Character name="3" resource="digit_3" width="90" height="120" />
-            <Character name="4" resource="digit_4" width="90" height="120" />
-            <Character name="5" resource="digit_5" width="90" height="120" />
-            <Character name="6" resource="digit_6" width="90" height="120" />
-            <Character name="7" resource="digit_7" width="90" height="120" />
-            <Character name="8" resource="digit_8" width="90" height="120" />
-            <Character name="9" resource="digit_9" width="90" height="120" />
-            <Character name=":" resource="digit_colon" width="30" height="120" />
+            <Character name="0" resource="digit_0" width="78" height="104" />
+            <Character name="1" resource="digit_1" width="78" height="104" />
+            <Character name="2" resource="digit_2" width="78" height="104" />
+            <Character name="3" resource="digit_3" width="78" height="104" />
+            <Character name="4" resource="digit_4" width="78" height="104" />
+            <Character name="5" resource="digit_5" width="78" height="104" />
+            <Character name="6" resource="digit_6" width="78" height="104" />
+            <Character name="7" resource="digit_7" width="78" height="104" />
+            <Character name="8" resource="digit_8" width="78" height="104" />
+            <Character name="9" resource="digit_9" width="78" height="104" />
+            <Character name=":" resource="digit_colon" width="26" height="104" />
         </BitmapFont>
     </BitmapFonts>
     <Scene>
@@ -34,53 +34,53 @@
             y="0">
             <TimeText
                 format="hh_1"
-                height="120"
-                width="90"
-                x="112"
-                y="140">
+                height="104"
+                width="78"
+                x="126"
+                y="148">
                 <Variant
                     mode="AMBIENT"
                     target="alpha"
                     value="0" />
                 <BitmapFont
                     family="arcade_digits"
-                    size="126" />
+                    size="109" />
             </TimeText>
             <TimeText
                 format="mm_10"
-                height="120"
-                width="90"
-                x="248"
-                y="140">
+                height="104"
+                width="78"
+                x="246"
+                y="148">
                 <Variant
                     mode="AMBIENT"
                     target="alpha"
                     value="0" />
                 <BitmapFont
                     family="arcade_digits"
-                    size="126" />
+                    size="109" />
             </TimeText>
             <TimeText
                 format="mm_1"
-                height="120"
-                width="90"
-                x="346"
-                y="140">
+                height="104"
+                width="78"
+                x="332"
+                y="148">
                 <Variant
                     mode="AMBIENT"
                     target="alpha"
                     value="0" />
                 <BitmapFont
                     family="arcade_digits"
-                    size="126" />
+                    size="109" />
             </TimeText>
             <TimeText
                 alpha="0"
                 format="hh:mm"
-                height="120"
-                width="390"
-                x="30"
-                y="140">
+                height="104"
+                width="370"
+                x="40"
+                y="148">
                 <Variant
                     mode="AMBIENT"
                     target="alpha"
@@ -88,7 +88,7 @@
                 <Font
                     color="#ffffffff"
                     family="SYNC_TO_DEVICE"
-                    size="110"
+                    size="95"
                     weight="THIN" />
             </TimeText>
         </DigitalClock>
@@ -110,18 +110,32 @@
                 <Image resource="arena_divider" />
             </PartImage>
             <PartImage
-                height="48"
-                width="40"
-                x="90"
-                y="346">
-                <Image resource="arena_ship_left" />
+                height="40"
+                width="10"
+                x="95"
+                y="350">
+                <Transform
+                    target="y"
+                    value="342 + (clamp([SECOND] % 5,0,2.5) - clamp(([SECOND] % 5)-2.5,0,2.5)) / 2.5 * 20">
+                    <Animation
+                        duration="1"
+                        interpolation="LINEAR" />
+                </Transform>
+                <Image resource="arena_paddle_left" />
             </PartImage>
             <PartImage
-                height="48"
-                width="40"
-                x="320"
-                y="346">
-                <Image resource="arena_ship_right" />
+                height="40"
+                width="10"
+                x="345"
+                y="350">
+                <Transform
+                    target="y"
+                    value="342 + (clamp([SECOND] % 5,0,2.5) - clamp(([SECOND] % 5)-2.5,0,2.5)) / 2.5 * 20">
+                    <Animation
+                        duration="1"
+                        interpolation="LINEAR" />
+                </Transform>
+                <Image resource="arena_paddle_right" />
             </PartImage>
             <PartImage
                 height="16"
@@ -130,15 +144,26 @@
                 y="362">
                 <Transform
                     target="x"
-                    value="140 + (clamp([SECOND],0,30) - clamp([SECOND]-30,0,30)) / 30 * 160" />
-                <Image resource="arena_missile" />
+                    value="140 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 160">
+                    <Animation
+                        duration="1"
+                        interpolation="LINEAR" />
+                </Transform>
+                <Transform
+                    target="y"
+                    value="354 + (clamp([SECOND] % 5,0,2.5) - clamp(([SECOND] % 5)-2.5,0,2.5)) / 2.5 * 20">
+                    <Animation
+                        duration="1"
+                        interpolation="LINEAR" />
+                </Transform>
+                <Image resource="arena_ball" />
             </PartImage>
         </Group>
         <PartImage
-            height="120"
-            width="90"
-            x="14"
-            y="140">
+            height="104"
+            width="78"
+            x="40"
+            y="148">
             <Transform
                 target="alpha"
                 value="(([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*255" />
@@ -149,10 +174,10 @@
             <Image resource="hour_leading_one" />
         </PartImage>
         <PartImage
-            height="120"
-            width="30"
-            x="210"
-            y="140">
+            height="104"
+            width="26"
+            x="212"
+            y="148">
             <Variant
                 mode="AMBIENT"
                 target="alpha"

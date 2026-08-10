@@ -22,16 +22,20 @@ The watch face SHALL render a black background with a faint horizontal scanline 
 - **WHEN** the watch face is in active mode
 - **THEN** the scanline background is visible in areas not covered by the time text or the arena group
 
-### Requirement: Refraction-style bouncing arena
-The watch face SHALL render, in the decorative band below the time display, a vertical divider at horizontal center, two small originally-designed geometric ship sprites near the left and right edges (not traced from any specific published game's sprite art), and one small bouncing element whose horizontal position is derived from the current time's seconds value so it moves back and forth across the full band width, crossing the central divider each pass.
+### Requirement: Pong-style bouncing arena
+The watch face SHALL render, in the decorative band below the time display, a dashed vertical divider at horizontal center, two simple paddle bars near the left and right edges, and one small ball that moves back and forth across the band (with a lighter secondary vertical bounce, so its path is diagonal rather than a single horizontal line) at a pace that completes multiple full back-and-forth traversals per minute, with its on-screen motion appearing smooth rather than jumping once per second.
 
-#### Scenario: Bouncing element position changes over time
+#### Scenario: Ball completes multiple bounces per minute
+- **WHEN** the watch face is in active mode over the span of one minute
+- **THEN** the ball completes more than one full back-and-forth traversal of the band (i.e., its horizontal bounce period is a fraction of 60 seconds, not the full 60 seconds)
+
+#### Scenario: Ball motion appears smooth
 - **WHEN** the current seconds value changes while the watch face is in active mode
-- **THEN** the bouncing element's horizontal position on screen changes accordingly, moving back and forth between the left and right edges of the arena band and crossing the central divider on each pass
+- **THEN** the ball's on-screen position transitions smoothly toward its new target position rather than jumping there instantaneously
 
-#### Scenario: Arena assets are original, unbranded art
-- **WHEN** the divider, ship, and bouncing-element assets are produced for this watch face
-- **THEN** they SHALL be original pixel art generated for this project, and SHALL NOT reproduce the specific sprite art, level art, logo, or name of any existing copyrighted or trademarked video game (including the homebrew game that inspired the mechanic)
+#### Scenario: Paddles and ball are original, unbranded art
+- **WHEN** the divider, paddle, and ball assets are produced for this watch face
+- **THEN** they SHALL be original pixel art generated for this project, and SHALL NOT reproduce the specific sprite art, level art, logo, or name of any existing copyrighted or trademarked video game
 
 ### Requirement: Ambient mode simplification
 When the watch face transitions to ambient (always-on) mode, the arena group SHALL be hidden (rendered at zero opacity) and the time text SHALL switch to a simplified, thin/outline rendering, consistent with Wear OS ambient-mode power and burn-in guidance.

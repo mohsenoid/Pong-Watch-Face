@@ -2,12 +2,9 @@
 
 Everything here is hand-authored/procedurally generated (a pixel-grid
 digit font transcribed from a user-provided reference, plus original
-shapes for the background and the Refraction-inspired bouncing arena) -
-nothing is traced or derived from any copyrighted game's art. The arena
-mechanic (a bouncing element crossing a central divider between two
-ships) is inspired by "Refraction", an independent 2018 Atari 2600
-homebrew game by Norbert Landsteiner - not a commercial/licensed title -
-but the sprites here are original, not traced from that game's assets.
+shapes for the background and a Pong-style bouncing arena: a dashed
+center divider, two paddle bars, and a bouncing ball) - nothing is
+traced or derived from any copyrighted game's art.
 
 Run with: python3 watchface/scripts/generate_pixel_assets.py
 Outputs into watchface/src/main/res/drawable/.
@@ -22,11 +19,10 @@ DRAWABLE_DIR = os.path.join(SCRIPT_DIR, "..", "src", "main", "res", "drawable")
 
 ACCENT_COLOR = (255, 106, 0, 255)  # Atari-style orange/red (time display only)
 DIVIDER_COLOR = (240, 240, 240, 255)  # bright white arena barrier
-SHIP_LEFT_COLOR = (0, 220, 220, 255)  # cyan, right-facing ship
-SHIP_RIGHT_COLOR = (230, 0, 200, 255)  # magenta, left-facing ship
-MISSILE_COLOR = (255, 230, 0, 255)  # bright yellow bouncing element
+PADDLE_COLOR = (245, 245, 245, 255)  # classic white Pong paddles
+BALL_COLOR = (255, 230, 0, 255)  # bright yellow bouncing ball
 CANVAS_SIZE = 450
-ARENA_BAND_HEIGHT = 48  # matches the ship sprite height so they align
+ARENA_BAND_HEIGHT = 48  # matches the paddle height so they align
 
 # Atari 2600-style 6x8 digit font, transcribed from a byte-table reference
 # the user provided and cross-checked bit-for-bit (each byte's bits 6..1
@@ -46,7 +42,9 @@ DIGIT_ROWS = {
 
 GRID_COLS = 6
 GRID_ROWS = 8
-DIGIT_SCALE = 15  # pixels per grid cell
+DIGIT_SCALE = 13  # pixels per grid cell (was 15 - shrunk so the digit row
+                   # has real margin inside the circular watch face instead
+                   # of nearly touching the clip boundary)
 DIGIT_WIDTH = GRID_COLS * DIGIT_SCALE
 DIGIT_HEIGHT = GRID_ROWS * DIGIT_SCALE
 
@@ -81,7 +79,7 @@ def generate_digits():
     one_img = render_digit(DIGIT_ROWS["1"], ACCENT_COLOR)
     one_img.save(os.path.join(DRAWABLE_DIR, "hour_leading_one.png"))
 
-    colon_width = 30
+    colon_width = 2 * DIGIT_SCALE  # was hardcoded 30, exactly 2x the old scale
     colon_img = Image.new("RGBA", (colon_width, DIGIT_HEIGHT), (0, 0, 0, 0))
     draw = ImageDraw.Draw(colon_img)
     dot = DIGIT_SCALE
@@ -109,70 +107,36 @@ def generate_scanline_background():
 
 
 def generate_divider():
+    # Small square dots down the column - Pong's classic center-court line -
+    # instead of a solid bar.
     width, height = 6, ARENA_BAND_HEIGHT
-    img = Image.new("RGBA", (width, height), DIVIDER_COLOR)
+    dash, gap = 4, 4
+    period = dash + gap
+    img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    pixels = img.load()
+    for y in range(height):
+        if y % period < dash:
+            for x in range(width):
+                pixels[x, y] = DIVIDER_COLOR
     img.save(os.path.join(DRAWABLE_DIR, "arena_divider.png"))
 
 
-# A simple wedge/dart ship silhouette - a right-pointing triangle: flat
-# vertical base at col0, apex approaching col9 at the vertical center - on
-# a 10-wide x 12-tall grid, defined as filled column ranges per row so the
-# shape is unambiguous (no hand-counted ASCII art to mistype, the mistake
-# that broke the first digit-font attempt). Not traced from any specific
-# game's sprite art.
-SHIP_GRID_WIDTH = 10
-SHIP_GRID_HEIGHT = 12
-SHIP_ROWS_FACING_RIGHT = {
-    0: [(0, 0)],
-    1: [(0, 1)],
-    2: [(0, 2)],
-    3: [(0, 4)],
-    4: [(0, 6)],
-    5: [(0, 8)],
-    6: [(0, 8)],
-    7: [(0, 6)],
-    8: [(0, 4)],
-    9: [(0, 2)],
-    10: [(0, 1)],
-    11: [(0, 0)],
-}
+PADDLE_WIDTH = 10
+PADDLE_HEIGHT = 40
 
 
-def _mirror_rows(rows, width):
-    return {
-        row: [(width - 1 - end, width - 1 - start) for start, end in ranges]
-        for row, ranges in rows.items()
-    }
+def generate_paddles():
+    left = Image.new("RGBA", (PADDLE_WIDTH, PADDLE_HEIGHT), PADDLE_COLOR)
+    left.save(os.path.join(DRAWABLE_DIR, "arena_paddle_left.png"))
+
+    right = Image.new("RGBA", (PADDLE_WIDTH, PADDLE_HEIGHT), PADDLE_COLOR)
+    right.save(os.path.join(DRAWABLE_DIR, "arena_paddle_right.png"))
 
 
-def _render_grid(rows, grid_width, grid_height, color, scale):
-    width = grid_width * scale
-    height = grid_height * scale
-    img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-    pixels = img.load()
-    for row_index in range(grid_height):
-        for start, end in rows.get(row_index, []):
-            for col_index in range(start, end + 1):
-                for dy in range(scale):
-                    for dx in range(scale):
-                        pixels[col_index * scale + dx, row_index * scale + dy] = color
-    return img
-
-
-def generate_ships():
-    scale = 4
-    right_facing = _render_grid(SHIP_ROWS_FACING_RIGHT, SHIP_GRID_WIDTH, SHIP_GRID_HEIGHT, SHIP_LEFT_COLOR, scale)
-    right_facing.save(os.path.join(DRAWABLE_DIR, "arena_ship_left.png"))
-
-    left_facing_rows = _mirror_rows(SHIP_ROWS_FACING_RIGHT, SHIP_GRID_WIDTH)
-    left_facing = _render_grid(left_facing_rows, SHIP_GRID_WIDTH, SHIP_GRID_HEIGHT, SHIP_RIGHT_COLOR, scale)
-    left_facing.save(os.path.join(DRAWABLE_DIR, "arena_ship_right.png"))
-
-
-def generate_missile():
+def generate_ball():
     size = 16
-    img = Image.new("RGBA", (size, size), MISSILE_COLOR)
-    img.save(os.path.join(DRAWABLE_DIR, "arena_missile.png"))
+    img = Image.new("RGBA", (size, size), BALL_COLOR)
+    img.save(os.path.join(DRAWABLE_DIR, "arena_ball.png"))
 
 
 def main():
@@ -180,8 +144,8 @@ def main():
     generate_digits()
     generate_scanline_background()
     generate_divider()
-    generate_ships()
-    generate_missile()
+    generate_paddles()
+    generate_ball()
     print("Generated pixel-art assets in", os.path.abspath(DRAWABLE_DIR))
 
 
