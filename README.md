@@ -2,7 +2,7 @@
 
 A Wear OS watch face built entirely with the [Watch Face Format](https://developer.android.com/training/wearables/wff) (declarative XML, no code) — a retro arcade time display over a two-tone split background, with a tiny game of Pong playing out underneath.
 
-![Watch face screenshot](docs/screenshot.png)
+![Watch face screenshot](docs/screenshot.gif)
 
 ## Features
 
