@@ -17,19 +17,14 @@ from PIL import Image, ImageDraw
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DRAWABLE_DIR = os.path.join(SCRIPT_DIR, "..", "src", "main", "res", "drawable")
 
-ACCENT_COLOR = (255, 106, 0, 255)  # Atari-style orange/red, split bg bottom half
-SPLIT_TOP_COLOR = (90, 60, 200, 255)  # purple, split bg top half
-DIGIT_COLOR = (255, 255, 255, 255)  # white - single fixed digit color, chosen
-                                     # for contrast against both split halves
-                                     # (masking-based per-half color swap was
-                                     # attempted and abandoned - see design.md)
+DIGIT_COLOR = (255, 255, 255, 255)  # white - digit glyphs are rendered once
+                                     # and recolored per-theme via tintColor
+                                     # (see watchface.xml UserConfigurations)
 DIVIDER_COLOR = (240, 240, 240, 255)  # bright white arena barrier
 PADDLE_COLOR = (245, 245, 245, 255)  # classic white Pong paddles
 BALL_COLOR = (255, 230, 0, 255)  # bright yellow bouncing ball
 CANVAS_SIZE = 450
 ARENA_BAND_HEIGHT = 48  # matches the paddle height so they align
-SPLIT_Y = 205  # horizontal divide for the two-tone background; chosen so the
-               # digit row (y=148..252) straddles it
 
 # Atari 2600-style 6x8 digit font, transcribed from a byte-table reference
 # the user provided and cross-checked bit-for-bit (each byte's bits 6..1
@@ -101,7 +96,7 @@ def generate_digits():
 
 def generate_scanline_background():
     # Semi-transparent overlay (not an opaque fill) so it can sit on top of
-    # the two-tone split background without hiding its colors.
+    # the tinted solid background without hiding its color.
     img = Image.new("RGBA", (CANVAS_SIZE, CANVAS_SIZE), (0, 0, 0, 0))
     pixels = img.load()
     for y in range(CANVAS_SIZE):
@@ -111,14 +106,11 @@ def generate_scanline_background():
     img.save(os.path.join(DRAWABLE_DIR, "bg_scanlines.png"))
 
 
-def generate_split_background():
-    img = Image.new("RGBA", (CANVAS_SIZE, CANVAS_SIZE), (0, 0, 0, 255))
-    pixels = img.load()
-    for y in range(CANVAS_SIZE):
-        color = SPLIT_TOP_COLOR if y < SPLIT_Y else ACCENT_COLOR
-        for x in range(CANVAS_SIZE):
-            pixels[x, y] = color
-    img.save(os.path.join(DRAWABLE_DIR, "bg_split.png"))
+def generate_solid_background():
+    # Plain white fill, recolored per-theme at render time via tintColor
+    # (see watchface.xml UserConfigurations / ColorConfiguration).
+    img = Image.new("RGBA", (CANVAS_SIZE, CANVAS_SIZE), (255, 255, 255, 255))
+    img.save(os.path.join(DRAWABLE_DIR, "bg_solid.png"))
 
 
 def generate_divider():
@@ -159,7 +151,7 @@ def main():
     os.makedirs(DRAWABLE_DIR, exist_ok=True)
     generate_digits()
     generate_scanline_background()
-    generate_split_background()
+    generate_solid_background()
     generate_divider()
     generate_paddles()
     generate_ball()

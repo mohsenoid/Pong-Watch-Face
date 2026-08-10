@@ -15,12 +15,24 @@ The watch face SHALL display the current time in `hh:mm` format in active (inter
 - **WHEN** the watch face is in active mode
 - **THEN** every digit and the colon separator are rendered using the custom bitmap font glyphs, not the system default font
 
-### Requirement: Static two-color split background
-The watch face SHALL fill the entire background with two solid colors divided by a straight horizontal line, positioned so the time digit row visibly straddles the divide.
+### Requirement: Selectable color themes
+The watch face SHALL offer 15 selectable color themes through its native configuration UI (with the on-device Edit affordance enabled so the picker is reachable), each defining a two-color top/bottom split background. The theme selected by the user SHALL persist across watch face sessions (standard system configuration behavior) and SHALL apply immediately when changed. The time digits SHALL remain a fixed white color across all themes.
 
-#### Scenario: Background fully covers the screen with two fixed colors
-- **WHEN** the watch face is in active mode
-- **THEN** the region above the dividing line is rendered in one solid color and the region below in the other, together fully covering the circular watch face with no gaps
+#### Scenario: Selecting a theme changes the background colors
+- **WHEN** a user selects a different color theme from the watch face's configuration UI
+- **THEN** the top and bottom background colors update to match the selected theme, and the time digits remain white
+
+#### Scenario: Default theme renders correctly
+- **WHEN** the watch face is installed and no theme has been explicitly selected yet
+- **THEN** it renders using the default theme (theme index 0)
+
+#### Scenario: Arena and date text are unaffected by theme selection
+- **WHEN** a user selects any color theme
+- **THEN** the Pong arena (paddles, ball, divider) and the date/day-of-week text continue to render in their existing fixed colors, unaffected by the theme selection
+
+#### Scenario: Watch face is editable from the device
+- **WHEN** a user long-presses the watch face (or opens it from the favorites carousel) on the watch
+- **THEN** an Edit option is available and leads to the color theme picker
 
 ### Requirement: Scanline background
 The watch face SHALL render a faint horizontal scanline texture as a semi-transparent overlay on top of the two-color split background in active mode, evoking a CRT arcade-cabinet look without hiding the background colors.
@@ -63,8 +75,12 @@ When the watch face transitions to ambient (always-on) mode, all content (backgr
 - **THEN** the ball and paddles appear static for the duration of ambient mode, rather than continuing to animate
 
 ### Requirement: No third-party trademark or branding
-The watch face SHALL NOT display any name, string, or asset referencing a specific third-party copyrighted or trademarked video game (for example, it SHALL NOT use the string "River Raid" or any equivalent third-party game title anywhere in the watch face name, on-screen text, or asset filenames intended as user-facing labels).
+The watch face SHALL NOT display any name, string, or asset referencing a specific third-party copyrighted or trademarked video game (for example, it SHALL NOT use the string "River Raid" or any equivalent third-party game title anywhere in the watch face name, on-screen text, asset filenames intended as user-facing labels, or color-theme configuration option names).
 
 #### Scenario: Watch face name avoids third-party trademarks
 - **WHEN** a user views the watch face's name (e.g., in the watch face picker)
 - **THEN** the displayed name describes the original arcade theme generically and does not contain a third-party game's trademarked title
+
+#### Scenario: Color theme names avoid third-party trademarks
+- **WHEN** a user views the list of selectable color themes in the watch face's configuration UI
+- **THEN** each theme's display name describes its color palette generically (e.g., by color or mood) and does not contain any third-party game's trademarked title

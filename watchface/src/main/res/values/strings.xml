@@ -1,3 +1,19 @@
 <resources>
     <string name="watch_face_name">Retro Arcade</string>
+    <string name="theme_config_label">Color Theme</string>
+    <string name="theme_classic_arcade">Classic Arcade</string>
+    <string name="theme_night_vision">Night Vision</string>
+    <string name="theme_war_room">War Room</string>
+    <string name="theme_radar_yellow">Radar Yellow</string>
+    <string name="theme_crimson_sky">Crimson Sky</string>
+    <string name="theme_neon_magenta">Neon Magenta</string>
+    <string name="theme_copper_cyan">Copper Cyan</string>
+    <string name="theme_jungle_vine">Jungle Vine</string>
+    <string name="theme_emerald_grid">Emerald Grid</string>
+    <string name="theme_molten_amber">Molten Amber</string>
+    <string name="theme_venom_pink">Venom Pink</string>
+    <string name="theme_golden_marsh">Golden Marsh</string>
+    <string name="theme_cosmic_cyan">Cosmic Cyan</string>
+    <string name="theme_desert_amber">Desert Amber</string>
+    <string name="theme_signal_green">Signal Green</string>
 </resources>

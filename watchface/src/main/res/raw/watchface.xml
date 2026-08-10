@@ -4,172 +4,468 @@
     <Metadata
         key="CLOCK_TYPE"
         value="DIGITAL" />
-    <BitmapFonts>
-        <BitmapFont name="arcade_digits">
-            <Character name="0" resource="digit_0" width="78" height="104" />
-            <Character name="1" resource="digit_1" width="78" height="104" />
-            <Character name="2" resource="digit_2" width="78" height="104" />
-            <Character name="3" resource="digit_3" width="78" height="104" />
-            <Character name="4" resource="digit_4" width="78" height="104" />
-            <Character name="5" resource="digit_5" width="78" height="104" />
-            <Character name="6" resource="digit_6" width="78" height="104" />
-            <Character name="7" resource="digit_7" width="78" height="104" />
-            <Character name="8" resource="digit_8" width="78" height="104" />
-            <Character name="9" resource="digit_9" width="78" height="104" />
-            <Character name=":" resource="digit_colon" width="26" height="104" />
-        </BitmapFont>
-    </BitmapFonts>
+    <UserConfigurations>
+        <ColorConfiguration
+            defaultValue="0"
+            displayName="theme_config_label"
+            id="themeColor">
+            <ColorOption
+                colors="#5A3CC8 #FF6A00"
+                displayName="theme_classic_arcade"
+                id="0" />
+            <ColorOption
+                colors="#1C631C #00FF66"
+                displayName="theme_night_vision"
+                id="1" />
+            <ColorOption
+                colors="#476020 #FFC000"
+                displayName="theme_war_room"
+                id="2" />
+            <ColorOption
+                colors="#192366 #FFFF00"
+                displayName="theme_radar_yellow"
+                id="3" />
+            <ColorOption
+                colors="#720E0E #FF2222"
+                displayName="theme_crimson_sky"
+                id="4" />
+            <ColorOption
+                colors="#412060 #FF00FF"
+                displayName="theme_neon_magenta"
+                id="5" />
+            <ColorOption
+                colors="#71240F #00E5FF"
+                displayName="theme_copper_cyan"
+                id="6" />
+            <ColorOption
+                colors="#65451B #D4FF00"
+                displayName="theme_jungle_vine"
+                id="7" />
+            <ColorOption
+                colors="#206059 #70FF30"
+                displayName="theme_emerald_grid"
+                id="8" />
+            <ColorOption
+                colors="#203460 #FF8000"
+                displayName="theme_molten_amber"
+                id="9" />
+            <ColorOption
+                colors="#126D4C #FF007F"
+                displayName="theme_venom_pink"
+                id="10" />
+            <ColorOption
+                colors="#142D6B #FFD700"
+                displayName="theme_golden_marsh"
+                id="11" />
+            <ColorOption
+                colors="#34116E #00FFFF"
+                displayName="theme_cosmic_cyan"
+                id="12" />
+            <ColorOption
+                colors="#73440D #FFC700"
+                displayName="theme_desert_amber"
+                id="13" />
+            <ColorOption
+                colors="#192B66 #00FF33"
+                displayName="theme_signal_green"
+                id="14" />
+        </ColorConfiguration>
+    </UserConfigurations>
     <Scene>
-        <PartImage
+        <Group
+            name="scene_root"
             height="450"
             width="450"
             x="0"
             y="0">
-            <Image resource="bg_split" />
-        </PartImage>
-        <PartImage
-            height="450"
-            width="450"
-            x="0"
-            y="0">
-            <Image resource="bg_scanlines" />
-        </PartImage>
-        <DigitalClock
-            height="450"
-            width="450"
-            x="0"
-            y="0">
-            <TimeText
-                format="hh_1"
+            <Variant
+                mode="AMBIENT"
+                target="alpha"
+                value="110" />
+            <PartImage
+                height="205"
+                tintColor="[CONFIGURATION.themeColor.0]"
+                width="450"
+                x="0"
+                y="0">
+                <Image resource="bg_solid" />
+            </PartImage>
+            <PartImage
+                height="245"
+                tintColor="[CONFIGURATION.themeColor.1]"
+                width="450"
+                x="0"
+                y="205">
+                <Image resource="bg_solid" />
+            </PartImage>
+            <PartImage
+                height="450"
+                width="450"
+                x="0"
+                y="0">
+                <Image resource="bg_scanlines" />
+            </PartImage>
+            <PartImage
                 height="104"
                 width="78"
                 x="126"
                 y="148">
-                <BitmapFont
-                    family="arcade_digits"
-                    size="109" />
-            </TimeText>
-            <TimeText
-                format="mm_10"
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==0)*255" />
+                <Image resource="digit_0" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==1)*255" />
+                <Image resource="digit_1" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==2)*255" />
+                <Image resource="digit_2" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==3)*255" />
+                <Image resource="digit_3" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==4)*255" />
+                <Image resource="digit_4" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==5)*255" />
+                <Image resource="digit_5" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==6)*255" />
+                <Image resource="digit_6" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==7)*255" />
+                <Image resource="digit_7" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==8)*255" />
+                <Image resource="digit_8" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="126"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([HOUR_UNITS_DIGIT]==9)*255" />
+                <Image resource="digit_9" />
+            </PartImage>
+            <PartImage
                 height="104"
                 width="78"
                 x="246"
                 y="148">
-                <BitmapFont
-                    family="arcade_digits"
-                    size="109" />
-            </TimeText>
-            <TimeText
-                format="mm_1"
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_TENS_DIGIT]==0)*255" />
+                <Image resource="digit_0" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="246"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_TENS_DIGIT]==1)*255" />
+                <Image resource="digit_1" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="246"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_TENS_DIGIT]==2)*255" />
+                <Image resource="digit_2" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="246"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_TENS_DIGIT]==3)*255" />
+                <Image resource="digit_3" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="246"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_TENS_DIGIT]==4)*255" />
+                <Image resource="digit_4" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="246"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_TENS_DIGIT]==5)*255" />
+                <Image resource="digit_5" />
+            </PartImage>
+            <PartImage
                 height="104"
                 width="78"
                 x="332"
                 y="148">
-                <BitmapFont
-                    family="arcade_digits"
-                    size="109" />
-            </TimeText>
-        </DigitalClock>
-        <Group
-            name="arcade_track"
-            height="450"
-            width="450"
-            x="0"
-            y="0">
-            <PartImage
-                height="96"
-                width="6"
-                x="222"
-                y="322">
-                <Image resource="arena_divider" />
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==0)*255" />
+                <Image resource="digit_0" />
             </PartImage>
             <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==1)*255" />
+                <Image resource="digit_1" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==2)*255" />
+                <Image resource="digit_2" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==3)*255" />
+                <Image resource="digit_3" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==4)*255" />
+                <Image resource="digit_4" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==5)*255" />
+                <Image resource="digit_5" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==6)*255" />
+                <Image resource="digit_6" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==7)*255" />
+                <Image resource="digit_7" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==8)*255" />
+                <Image resource="digit_8" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="78"
+                x="332"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="([MINUTE_UNITS_DIGIT]==9)*255" />
+                <Image resource="digit_9" />
+            </PartImage>
+            <Group
+                name="arcade_track"
+                height="450"
+                width="450"
+                x="0"
+                y="0">
+                <PartImage
+                    height="96"
+                    width="6"
+                    x="222"
+                    y="322">
+                    <Image resource="arena_divider" />
+                </PartImage>
+                <PartImage
+                    height="40"
+                    width="10"
+                    x="95"
+                    y="350">
+                    <Transform
+                        target="y"
+                        value="342 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 20">
+                        <Animation
+                            duration="1"
+                            interpolation="LINEAR" />
+                    </Transform>
+                    <Image resource="arena_paddle_left" />
+                </PartImage>
+                <PartImage
+                    height="40"
+                    width="10"
+                    x="345"
+                    y="350">
+                    <Transform
+                        target="y"
+                        value="342 + (clamp([SECOND] % 6,0,3) - clamp(([SECOND] % 6)-3,0,3)) / 3 * 20">
+                        <Animation
+                            duration="1"
+                            interpolation="LINEAR" />
+                    </Transform>
+                    <Image resource="arena_paddle_right" />
+                </PartImage>
+                <PartImage
+                    height="16"
+                    width="16"
+                    x="140"
+                    y="362">
+                    <Transform
+                        target="x"
+                        value="105 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 224">
+                        <Animation
+                            duration="1"
+                            interpolation="LINEAR" />
+                    </Transform>
+                    <Transform
+                        target="y"
+                        value="354 + (clamp([SECOND] % 5,0,2.5) - clamp(([SECOND] % 5)-2.5,0,2.5)) / 2.5 * 20">
+                        <Animation
+                            duration="1"
+                            interpolation="LINEAR" />
+                    </Transform>
+                    <Image resource="arena_ball" />
+                </PartImage>
+            </Group>
+            <PartImage
+                height="104"
+                width="78"
+                x="40"
+                y="148">
+                <Transform
+                    target="alpha"
+                    value="(([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*255" />
+                <Image resource="hour_leading_one" />
+            </PartImage>
+            <PartImage
+                height="104"
+                width="26"
+                x="212"
+                y="148">
+                <Image resource="digit_colon" />
+            </PartImage>
+            <PartText
                 height="40"
-                width="10"
-                x="95"
-                y="350">
-                <Transform
-                    target="y"
-                    value="342 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 20">
-                    <Animation
-                        duration="1"
-                        interpolation="LINEAR" />
-                </Transform>
-                <Image resource="arena_paddle_left" />
-            </PartImage>
-            <PartImage
-                height="40"
-                width="10"
-                x="345"
-                y="350">
-                <Transform
-                    target="y"
-                    value="342 + (clamp([SECOND] % 6,0,3) - clamp(([SECOND] % 6)-3,0,3)) / 3 * 20">
-                    <Animation
-                        duration="1"
-                        interpolation="LINEAR" />
-                </Transform>
-                <Image resource="arena_paddle_right" />
-            </PartImage>
-            <PartImage
-                height="16"
-                width="16"
-                x="140"
-                y="362">
-                <Transform
-                    target="x"
-                    value="105 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 224">
-                    <Animation
-                        duration="1"
-                        interpolation="LINEAR" />
-                </Transform>
-                <Transform
-                    target="y"
-                    value="354 + (clamp([SECOND] % 5,0,2.5) - clamp(([SECOND] % 5)-2.5,0,2.5)) / 2.5 * 20">
-                    <Animation
-                        duration="1"
-                        interpolation="LINEAR" />
-                </Transform>
-                <Image resource="arena_ball" />
-            </PartImage>
+                width="360"
+                x="45"
+                y="70">
+                <Localization
+                    calendar="GREGORIAN"
+                    timeZone="SYNC_TO_DEVICE" />
+                <Text align="CENTER">
+                    <Font
+                        color="#ffffffff"
+                        family="SYNC_TO_DEVICE"
+                        size="28">
+                        <Template><![CDATA[%s, %s %s]]>
+                            <Parameter expression="[DAY_OF_WEEK_S]" />
+                            <Parameter expression="[MONTH_S]" />
+                            <Parameter expression="[DAY_Z]" />
+                        </Template>
+                    </Font>
+                </Text>
+            </PartText>
         </Group>
-        <PartImage
-            height="104"
-            width="78"
-            x="40"
-            y="148">
-            <Transform
-                target="alpha"
-                value="(([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*255" />
-            <Image resource="hour_leading_one" />
-        </PartImage>
-        <PartImage
-            height="104"
-            width="26"
-            x="212"
-            y="148">
-            <Image resource="digit_colon" />
-        </PartImage>
-        <PartText
-            height="40"
-            width="360"
-            x="45"
-            y="70">
-            <Localization
-                calendar="GREGORIAN"
-                timeZone="SYNC_TO_DEVICE" />
-            <Text align="CENTER">
-                <Font
-                    color="#ffffffff"
-                    family="SYNC_TO_DEVICE"
-                    size="28">
-                    <Template><![CDATA[%s, %s %s]]>
-                        <Parameter expression="[DAY_OF_WEEK_S]" />
-                        <Parameter expression="[MONTH_S]" />
-                        <Parameter expression="[DAY_Z]" />
-                    </Template>
-                </Font>
-            </Text>
-        </PartText>
     </Scene>
 </WatchFace>

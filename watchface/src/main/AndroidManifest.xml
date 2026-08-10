@@ -14,12 +14,9 @@
             android:name="com.google.wear.watchface.format.version"
             android:value="1" />
 
-        <!-- Optionally add details about the publisher. -->
-        <!--
-           <property
-          android:name="com.google.wear.watchface.format.publisher"
-          android:value="YourPublisherNameHere" />
-        -->
+        <property
+            android:name="com.google.wear.watchface.format.publisher"
+            android:value="Mohsen Mirhoseini" />
     </application>
 
 </manifest>

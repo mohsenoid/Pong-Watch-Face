@@ -6,14 +6,26 @@ A Wear OS watch face built entirely with the [Watch Face Format](https://develop
 
 ## Features
 
-- **Retro digit font** — a blocky pixel-grid font (0-9 and colon) transcribed from a classic Atari-style reference
-- **Two-tone split background** — purple on top, orange on the bottom, with the time straddling the divide
+- **Retro digit font** — a blocky pixel-grid font (0-9 and colon) transcribed from a classic Atari-style reference, always rendered in fixed white for contrast against any theme
+- **15 selectable color themes** — the original purple/orange look plus 14 more, each a two-tone split background you can pick from the watch face's on-device Edit menu (long-press the face, tap Edit)
 - **Day and date** — shown at the top (e.g. "Mon, Aug 10")
 - **A living game of Pong** — two paddles and a ball bounce around a dashed center court in the lower half of the face; the paddles move independently, and the ball's motion is smoothed rather than jumping once a second
 - **Ambient mode** — the face stays fully visible and simply dims when the watch goes ambient, with the Pong game frozen in place until you wake the screen again
 - **Faint CRT scanline overlay** for a bit of arcade-cabinet texture
 
 Every pixel-art asset is generated from scratch by [`watchface/scripts/generate_pixel_assets.py`](watchface/scripts/generate_pixel_assets.py) — nothing is traced or copied from any existing game.
+
+### Color themes
+
+| Classic Arcade (default) | Night Vision | Crimson Sky |
+|:---:|:---:|:---:|
+| ![Classic Arcade](docs/screenshot.png) | ![Night Vision](docs/theme_night_vision.png) | ![Crimson Sky](docs/theme_crimson_sky.png) |
+
+| Cosmic Cyan | Golden Marsh |
+|:---:|:---:|
+| ![Cosmic Cyan](docs/theme_cosmic_cyan.png) | ![Golden Marsh](docs/theme_golden_marsh.png) |
+
+...plus 10 more (War Room, Radar Yellow, Neon Magenta, Copper Cyan, Jungle Vine, Emerald Grid, Molten Amber, Venom Pink, Desert Amber, Signal Green) — pick your favorite from the watch face's Edit menu.
 
 ## Project structure
 
