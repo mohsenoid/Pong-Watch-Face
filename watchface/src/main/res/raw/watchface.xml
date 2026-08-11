@@ -385,7 +385,7 @@
                     y="350">
                     <Transform
                         target="y"
-                        value="342 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 20">
+                        value="rand(342, 362) + [SECOND] * 0">
                         <Animation
                             duration="1"
                             interpolation="LINEAR" />
@@ -399,7 +399,7 @@
                     y="350">
                     <Transform
                         target="y"
-                        value="342 + (clamp([SECOND] % 6,0,3) - clamp(([SECOND] % 6)-3,0,3)) / 3 * 20">
+                        value="rand(342, 362) + [SECOND] * 0">
                         <Animation
                             duration="1"
                             interpolation="LINEAR" />
