@@ -70,6 +70,17 @@
                 displayName="theme_signal_green"
                 id="14" />
         </ColorConfiguration>
+        <ListConfiguration
+            defaultValue="0"
+            displayName="layout_config_label"
+            id="layout">
+            <ListOption
+                displayName="layout_classic"
+                id="0" />
+            <ListOption
+                displayName="layout_scoreboard"
+                id="1" />
+        </ListConfiguration>
     </UserConfigurations>
     <Scene>
         <Group
@@ -109,7 +120,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==0)*255" />
@@ -119,7 +136,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==1)*255" />
@@ -129,7 +152,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==2)*255" />
@@ -139,7 +168,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==3)*255" />
@@ -149,7 +184,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==4)*255" />
@@ -159,7 +200,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==5)*255" />
@@ -169,7 +216,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==6)*255" />
@@ -179,7 +232,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==7)*255" />
@@ -189,7 +248,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==8)*255" />
@@ -199,7 +264,13 @@
                 height="104"
                 width="78"
                 x="126"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="([HOUR_UNITS_DIGIT]==9)*255" />
@@ -212,7 +283,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_TENS_DIGIT]==0)*255" />
+                    value="(([MINUTE_TENS_DIGIT]==0)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_0" />
             </PartImage>
             <PartImage
@@ -222,7 +293,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_TENS_DIGIT]==1)*255" />
+                    value="(([MINUTE_TENS_DIGIT]==1)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_1" />
             </PartImage>
             <PartImage
@@ -232,7 +303,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_TENS_DIGIT]==2)*255" />
+                    value="(([MINUTE_TENS_DIGIT]==2)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_2" />
             </PartImage>
             <PartImage
@@ -242,7 +313,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_TENS_DIGIT]==3)*255" />
+                    value="(([MINUTE_TENS_DIGIT]==3)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_3" />
             </PartImage>
             <PartImage
@@ -252,7 +323,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_TENS_DIGIT]==4)*255" />
+                    value="(([MINUTE_TENS_DIGIT]==4)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_4" />
             </PartImage>
             <PartImage
@@ -262,7 +333,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_TENS_DIGIT]==5)*255" />
+                    value="(([MINUTE_TENS_DIGIT]==5)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_5" />
             </PartImage>
             <PartImage
@@ -272,7 +343,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==0)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==0)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_0" />
             </PartImage>
             <PartImage
@@ -282,7 +353,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==1)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==1)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_1" />
             </PartImage>
             <PartImage
@@ -292,7 +363,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==2)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==2)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_2" />
             </PartImage>
             <PartImage
@@ -302,7 +373,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==3)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==3)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_3" />
             </PartImage>
             <PartImage
@@ -312,7 +383,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==4)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==4)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_4" />
             </PartImage>
             <PartImage
@@ -322,7 +393,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==5)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==5)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_5" />
             </PartImage>
             <PartImage
@@ -332,7 +403,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==6)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==6)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_6" />
             </PartImage>
             <PartImage
@@ -342,7 +413,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==7)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==7)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_7" />
             </PartImage>
             <PartImage
@@ -352,7 +423,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==8)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==8)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_8" />
             </PartImage>
             <PartImage
@@ -362,7 +433,7 @@
                 y="148">
                 <Transform
                     target="alpha"
-                    value="([MINUTE_UNITS_DIGIT]==9)*255" />
+                    value="(([MINUTE_UNITS_DIGIT]==9)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_9" />
             </PartImage>
             <Group
@@ -371,11 +442,94 @@
                 width="450"
                 x="0"
                 y="0">
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==0)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_0" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==1)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_1" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==2)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_2" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==3)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_3" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==4)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_4" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==5)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_5" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==6)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_6" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==7)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_7" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==8)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_8" />
+                </PartImage>
+                <PartImage height="48" width="36" x="162" y="207">
+                    <Transform target="alpha" value="(([MINUTE_TENS_DIGIT]==9)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_9" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==0)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_0" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==1)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_1" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==2)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_2" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==3)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_3" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==4)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_4" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==5)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_5" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==6)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_6" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==7)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_7" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==8)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_8" />
+                </PartImage>
+                <PartImage height="48" width="36" x="252" y="207">
+                    <Transform target="alpha" value="(([MINUTE_UNITS_DIGIT]==9)*([CONFIGURATION.layout]==&quot;1&quot;))*255" />
+                    <Image resource="digit_9" />
+                </PartImage>
                 <PartImage
                     height="96"
-                    width="6"
+                    width="5"
                     x="222"
                     y="322">
+                    <Transform
+                        target="alpha"
+                        value="([CONFIGURATION.layout]==&quot;0&quot;)*255" />
                     <Image resource="arena_divider" />
                 </PartImage>
                 <PartImage
@@ -383,6 +537,9 @@
                     width="10"
                     x="95"
                     y="350">
+                    <Transform
+                        target="alpha"
+                        value="([CONFIGURATION.layout]==&quot;0&quot;)*255" />
                     <Transform
                         target="y"
                         value="rand(342, 362) + [SECOND] * 0">
@@ -398,6 +555,9 @@
                     x="345"
                     y="350">
                     <Transform
+                        target="alpha"
+                        value="([CONFIGURATION.layout]==&quot;0&quot;)*255" />
+                    <Transform
                         target="y"
                         value="rand(342, 362) + [SECOND] * 0">
                         <Animation
@@ -411,6 +571,9 @@
                     width="16"
                     x="140"
                     y="362">
+                    <Transform
+                        target="alpha"
+                        value="([CONFIGURATION.layout]==&quot;0&quot;)*255" />
                     <Transform
                         target="x"
                         value="105 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 224">
@@ -427,12 +590,86 @@
                     </Transform>
                     <Image resource="arena_ball" />
                 </PartImage>
+                <PartImage
+                    height="150"
+                    width="5"
+                    x="222"
+                    y="268">
+                    <Transform
+                        target="alpha"
+                        value="([CONFIGURATION.layout]==&quot;1&quot;)*255" />
+                    <Image resource="arena_divider" />
+                </PartImage>
+                <PartImage
+                    height="40"
+                    width="10"
+                    x="95"
+                    y="265">
+                    <Transform
+                        target="alpha"
+                        value="([CONFIGURATION.layout]==&quot;1&quot;)*255" />
+                    <Transform
+                        target="y"
+                        value="rand(270, 300) + [SECOND] * 0">
+                        <Animation
+                            duration="1"
+                            interpolation="LINEAR" />
+                    </Transform>
+                    <Image resource="arena_paddle_left" />
+                </PartImage>
+                <PartImage
+                    height="40"
+                    width="10"
+                    x="345"
+                    y="265">
+                    <Transform
+                        target="alpha"
+                        value="([CONFIGURATION.layout]==&quot;1&quot;)*255" />
+                    <Transform
+                        target="y"
+                        value="rand(270, 300) + [SECOND] * 0">
+                        <Animation
+                            duration="1"
+                            interpolation="LINEAR" />
+                    </Transform>
+                    <Image resource="arena_paddle_right" />
+                </PartImage>
+                <PartImage
+                    height="16"
+                    width="16"
+                    x="140"
+                    y="295">
+                    <Transform
+                        target="alpha"
+                        value="([CONFIGURATION.layout]==&quot;1&quot;)*255" />
+                    <Transform
+                        target="x"
+                        value="105 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 224">
+                        <Animation
+                            duration="1"
+                            interpolation="LINEAR" />
+                    </Transform>
+                    <Transform
+                        target="y"
+                        value="285 + (clamp([SECOND] % 5,0,2.5) - clamp(([SECOND] % 5)-2.5,0,2.5)) / 2.5 * 40">
+                        <Animation
+                            duration="1"
+                            interpolation="LINEAR" />
+                    </Transform>
+                    <Image resource="arena_ball" />
+                </PartImage>
             </Group>
             <PartImage
                 height="104"
                 width="78"
                 x="40"
-                y="148">
+                y="108">
+                <Transform
+                    target="x"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 147 : 40" />
+                <Transform
+                    target="y"
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
                 <Transform
                     target="alpha"
                     value="(([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*255" />
@@ -443,6 +680,9 @@
                 width="26"
                 x="212"
                 y="148">
+                <Transform
+                    target="alpha"
+                    value="([CONFIGURATION.layout]==&quot;0&quot;)*255" />
                 <Image resource="digit_colon" />
             </PartImage>
             <PartText
@@ -450,6 +690,9 @@
                 width="360"
                 x="45"
                 y="70">
+                <Transform
+                    target="alpha"
+                    value="([CONFIGURATION.layout]==&quot;0&quot;)*255" />
                 <Localization
                     calendar="GREGORIAN"
                     timeZone="SYNC_TO_DEVICE" />
@@ -465,6 +708,39 @@
                         </Template>
                     </Font>
                 </Text>
+            </PartText>
+            <PartText
+                height="450"
+                width="450"
+                x="0"
+                y="0">
+                <Transform
+                    target="alpha"
+                    value="([CONFIGURATION.layout]==&quot;1&quot;)*255" />
+                <Localization
+                    calendar="GREGORIAN"
+                    timeZone="SYNC_TO_DEVICE" />
+                <TextCircular
+                    align="CENTER"
+                    centerX="225"
+                    centerY="225"
+                    direction="CLOCKWISE"
+                    endAngle="40"
+                    height="400"
+                    startAngle="320"
+                    verticalAlign="CENTER"
+                    width="400">
+                    <Font
+                        color="#ffffffff"
+                        family="SYNC_TO_DEVICE"
+                        size="20">
+                        <Template><![CDATA[%s, %s %s]]>
+                            <Parameter expression="[DAY_OF_WEEK_S]" />
+                            <Parameter expression="[MONTH_S]" />
+                            <Parameter expression="[DAY_Z]" />
+                        </Template>
+                    </Font>
+                </TextCircular>
             </PartText>
         </Group>
     </Scene>

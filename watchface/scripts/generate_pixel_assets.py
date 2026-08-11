@@ -24,7 +24,7 @@ DIVIDER_COLOR = (240, 240, 240, 255)  # bright white arena barrier
 PADDLE_COLOR = (245, 245, 245, 255)  # classic white Pong paddles
 BALL_COLOR = (255, 230, 0, 255)  # bright yellow bouncing ball
 CANVAS_SIZE = 450
-ARENA_BAND_HEIGHT = 48  # matches the paddle height so they align
+ARENA_BAND_HEIGHT = 80  # matches the paddle height so they align
 
 # Atari 2600-style 6x8 digit font, transcribed from a byte-table reference
 # the user provided and cross-checked bit-for-bit (each byte's bits 6..1
@@ -117,7 +117,7 @@ def generate_divider():
     # Small square dots down the column - Pong's classic center-court line -
     # instead of a solid bar. Double-height (not double-thickness) per user
     # request, for a taller, more prominent line.
-    width, height = 6, ARENA_BAND_HEIGHT * 2
+    width, height = 10, ARENA_BAND_HEIGHT * 2
     dash, gap = 4, 4
     period = dash + gap
     img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
