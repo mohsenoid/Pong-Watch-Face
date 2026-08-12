@@ -81,6 +81,10 @@
                 displayName="layout_scoreboard"
                 id="1" />
         </ListConfiguration>
+        <BooleanConfiguration
+            defaultValue="TRUE"
+            displayName="seconds_config_label"
+            id="showSeconds" />
     </UserConfigurations>
     <Scene>
         <Group
@@ -756,6 +760,50 @@
                             <Parameter expression="[DAY_OF_WEEK_S]" />
                             <Parameter expression="[MONTH_S]" />
                             <Parameter expression="[DAY_Z]" />
+                        </Template>
+                    </Font>
+                </Text>
+            </PartText>
+            <PartText
+                height="24"
+                width="70"
+                x="190"
+                y="275">
+                <Transform
+                    target="alpha"
+                    value="(([CONFIGURATION.layout]==&quot;0&quot;)*([CONFIGURATION.showSeconds]==&quot;TRUE&quot;))*255" />
+                <Localization
+                    calendar="GREGORIAN"
+                    timeZone="SYNC_TO_DEVICE" />
+                <Text align="CENTER">
+                    <Font
+                        color="#ffffffff"
+                        family="SYNC_TO_DEVICE"
+                        size="16">
+                        <Template><![CDATA[%s]]>
+                            <Parameter expression="[SECOND_Z]" />
+                        </Template>
+                    </Font>
+                </Text>
+            </PartText>
+            <PartText
+                height="20"
+                width="44"
+                x="203"
+                y="221">
+                <Transform
+                    target="alpha"
+                    value="(([CONFIGURATION.layout]==&quot;1&quot;)*([CONFIGURATION.showSeconds]==&quot;TRUE&quot;))*255" />
+                <Localization
+                    calendar="GREGORIAN"
+                    timeZone="SYNC_TO_DEVICE" />
+                <Text align="CENTER">
+                    <Font
+                        color="#ffffffff"
+                        family="SYNC_TO_DEVICE"
+                        size="14">
+                        <Template><![CDATA[%s]]>
+                            <Parameter expression="[SECOND_Z]" />
                         </Template>
                     </Font>
                 </Text>
