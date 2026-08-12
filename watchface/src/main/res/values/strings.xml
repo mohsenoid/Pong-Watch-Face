@@ -16,6 +16,8 @@
     <string name="theme_cosmic_cyan">Cosmic Cyan</string>
     <string name="theme_desert_amber">Desert Amber</string>
     <string name="theme_signal_green">Signal Green</string>
+    <string name="theme_steel_shadow">Steel Shadow</string>
+    <string name="theme_blackout">Blackout</string>
     <string name="layout_config_label">Layout</string>
     <string name="layout_classic">Classic</string>
     <string name="layout_scoreboard">Scoreboard</string>

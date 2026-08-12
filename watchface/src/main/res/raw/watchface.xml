@@ -69,6 +69,14 @@
                 colors="#192B66 #00FF33"
                 displayName="theme_signal_green"
                 id="14" />
+            <ColorOption
+                colors="#000000 #333333"
+                displayName="theme_steel_shadow"
+                id="15" />
+            <ColorOption
+                colors="#000000 #000000"
+                displayName="theme_blackout"
+                id="16" />
         </ColorConfiguration>
         <ListConfiguration
             defaultValue="0"
@@ -627,6 +635,9 @@
                         target="alpha"
                         value="([CONFIGURATION.layout]==&quot;0&quot;)*255" />
                     <Transform
+                        target="tintColor"
+                        value="[BATTERY_PERCENT] &lt; 20 ? colorArgb(255,255,34,34) : colorArgb(255,255,230,0)" />
+                    <Transform
                         target="x"
                         value="105 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 224">
                         <Animation
@@ -694,6 +705,9 @@
                     <Transform
                         target="alpha"
                         value="([CONFIGURATION.layout]==&quot;1&quot;)*255" />
+                    <Transform
+                        target="tintColor"
+                        value="[BATTERY_PERCENT] &lt; 20 ? colorArgb(255,255,34,34) : colorArgb(255,255,230,0)" />
                     <Transform
                         target="x"
                         value="105 + (clamp([SECOND] % 4,0,2) - clamp(([SECOND] % 4)-2,0,2)) / 2 * 224">

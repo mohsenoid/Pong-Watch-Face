@@ -132,3 +132,29 @@ In Scoreboard layout, the Pong arena (divider, paddles, ball) SHALL render large
 #### Scenario: Paddles remain within the visible circular face
 - **WHEN** a paddle moves to any position within its motion range in Scoreboard layout
 - **THEN** the paddle remains fully within the circular display area, not clipped by the bezel
+
+### Requirement: Seconds indicator
+The watch face SHALL display the current seconds value in both Classic and Scoreboard layouts when the "Show Seconds" setting is enabled (default: on), updating at least once per second, positioned in each layout so it does not compete visually with the primary time display. It SHALL be hidden entirely, in both layouts, when the setting is disabled.
+
+#### Scenario: Seconds value updates every second
+- **WHEN** the device's seconds value changes while the watch face is in active mode and "Show Seconds" is enabled
+- **THEN** the displayed seconds indicator updates to match, regardless of which layout is selected
+
+#### Scenario: User disables the seconds indicator
+- **WHEN** the user turns off "Show Seconds" in the watch face editor
+- **THEN** the seconds indicator is hidden immediately in both layouts, with no other visual change
+
+### Requirement: Low-battery arena tint
+The Pong ball SHALL switch to a warning tint when the device's battery level drops below a low-battery threshold, in both Classic and Scoreboard layouts, and SHALL revert to its normal color once the battery is no longer low, independent of any complication configuration. The paddles are unaffected and always render in their normal color.
+
+#### Scenario: Ball shows a low-battery warning tint
+- **WHEN** the device's battery level drops below the low-battery threshold
+- **THEN** the ball renders in a warning color instead of its normal color, in whichever layout is currently selected
+
+#### Scenario: Warning tint clears when battery is no longer low
+- **WHEN** the device's battery level rises back above the low-battery threshold (e.g., after charging)
+- **THEN** the ball returns to its normal color
+
+#### Scenario: Paddles are unaffected by battery level
+- **WHEN** the device's battery level drops below the low-battery threshold
+- **THEN** the paddles continue to render in their normal color, unaffected by the ball's warning tint

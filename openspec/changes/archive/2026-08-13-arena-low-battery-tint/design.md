@@ -15,7 +15,9 @@ The ball and paddles are plain `PartImage`s with white/yellow fill baked into th
 
 **Use `[BATTERY_PERCENT] < 20` via a ternary expression on `Transform target="tintColor"`, not `[BATTERY_IS_LOW]`.** `BATTERY_PERCENT < 20` gives an explicit, tunable threshold matching common "low battery" conventions (20% is Android's own default low-battery warning threshold), whereas `BATTERY_IS_LOW`'s exact system-defined threshold is undocumented in what was found this session — using the numeric comparison keeps the behavior predictable and adjustable.
 
-**Warning color: reuse the existing `#FF2222`-family red already used for the "Crimson Sky" theme's accent, applied via `tintColor="[BATTERY_PERCENT] < 20 ? #FF2222 : #FFFFFF]"`-style ternary (exact syntax to confirm on-device) rather than a new color.** Keeps the palette internally consistent; the ball/paddles' normal color (white/yellow) is preserved as the non-warning branch.
+**Warning color: reuse the existing `#FF2222`-family red already used for the "Crimson Sky" theme's accent, applied via a `Transform target="tintColor"` ternary built with `colorArgb()` (confirmed on-device — hex-string literals don't work inside an expression) rather than a new color.** Keeps the palette internally consistent; the ball's normal yellow (`colorArgb(255,255,230,0)`, matching its baked-in PNG color) is preserved as the non-warning branch.
+
+**Scope: ball only, not paddles (revised during implementation).** Both paddles were tinted initially, matching the original proposal, but per live feedback the paddle tint was removed — the ball alone reads as a sufficient glanceable cue without recoloring more of the arena. Applied to the ball in both Classic and Scoreboard layouts, since the arena appears in both.
 
 ## Risks / Trade-offs
 
