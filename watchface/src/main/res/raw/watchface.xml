@@ -123,7 +123,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -139,7 +139,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -155,7 +155,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -171,7 +171,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -187,7 +187,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -203,7 +203,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -219,7 +219,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -235,7 +235,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -251,7 +251,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -267,7 +267,7 @@
                 y="108">
                 <Transform
                     target="x"
-                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : 126" />
+                    value="[CONFIGURATION.layout]==&quot;1&quot; ? (186 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*39) : (83 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43)" />
                 <Transform
                     target="y"
                     value="[CONFIGURATION.layout]==&quot;1&quot; ? 88 : 148" />
@@ -282,6 +282,9 @@
                 x="246"
                 y="148">
                 <Transform
+                    target="x"
+                    value="203 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
+                <Transform
                     target="alpha"
                     value="(([MINUTE_TENS_DIGIT]==0)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_0" />
@@ -291,6 +294,9 @@
                 width="78"
                 x="246"
                 y="148">
+                <Transform
+                    target="x"
+                    value="203 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="(([MINUTE_TENS_DIGIT]==1)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
@@ -302,6 +308,9 @@
                 x="246"
                 y="148">
                 <Transform
+                    target="x"
+                    value="203 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
+                <Transform
                     target="alpha"
                     value="(([MINUTE_TENS_DIGIT]==2)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_2" />
@@ -311,6 +320,9 @@
                 width="78"
                 x="246"
                 y="148">
+                <Transform
+                    target="x"
+                    value="203 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="(([MINUTE_TENS_DIGIT]==3)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
@@ -322,6 +334,9 @@
                 x="246"
                 y="148">
                 <Transform
+                    target="x"
+                    value="203 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
+                <Transform
                     target="alpha"
                     value="(([MINUTE_TENS_DIGIT]==4)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_4" />
@@ -331,6 +346,9 @@
                 width="78"
                 x="246"
                 y="148">
+                <Transform
+                    target="x"
+                    value="203 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="(([MINUTE_TENS_DIGIT]==5)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
@@ -342,6 +360,9 @@
                 x="332"
                 y="148">
                 <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
+                <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==0)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_0" />
@@ -351,6 +372,9 @@
                 width="78"
                 x="332"
                 y="148">
+                <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==1)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
@@ -362,6 +386,9 @@
                 x="332"
                 y="148">
                 <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
+                <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==2)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_2" />
@@ -371,6 +398,9 @@
                 width="78"
                 x="332"
                 y="148">
+                <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==3)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
@@ -382,6 +412,9 @@
                 x="332"
                 y="148">
                 <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
+                <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==4)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_4" />
@@ -391,6 +424,9 @@
                 width="78"
                 x="332"
                 y="148">
+                <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==5)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
@@ -402,6 +438,9 @@
                 x="332"
                 y="148">
                 <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
+                <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==6)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_6" />
@@ -411,6 +450,9 @@
                 width="78"
                 x="332"
                 y="148">
+                <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==7)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
@@ -422,6 +464,9 @@
                 x="332"
                 y="148">
                 <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
+                <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==8)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
                 <Image resource="digit_8" />
@@ -431,6 +476,9 @@
                 width="78"
                 x="332"
                 y="148">
+                <Transform
+                    target="x"
+                    value="289 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="(([MINUTE_UNITS_DIGIT]==9)*([CONFIGURATION.layout]==&quot;0&quot;))*255" />
@@ -594,7 +642,7 @@
                     height="150"
                     width="5"
                     x="222"
-                    y="268">
+                    y="258">
                     <Transform
                         target="alpha"
                         value="([CONFIGURATION.layout]==&quot;1&quot;)*255" />
@@ -680,6 +728,9 @@
                 width="26"
                 x="212"
                 y="148">
+                <Transform
+                    target="x"
+                    value="169 + (([HOUR_0_23]==0)+([HOUR_0_23]==10)+([HOUR_0_23]==11)+([HOUR_0_23]==12)+([HOUR_0_23]==22)+([HOUR_0_23]==23))*43" />
                 <Transform
                     target="alpha"
                     value="([CONFIGURATION.layout]==&quot;0&quot;)*255" />
